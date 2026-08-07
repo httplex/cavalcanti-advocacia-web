@@ -28,4 +28,23 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleWhatsapp();
     window.addEventListener('scroll', toggleWhatsapp, { passive: true });
   }
+
+  const filterButtons = document.querySelectorAll('.materials__filter');
+  const materialCards = document.querySelectorAll('.material-card');
+
+  if (filterButtons.length && materialCards.length) {
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach((b) => b.classList.remove('is-active'));
+        button.classList.add('is-active');
+
+        const filter = button.dataset.filter;
+
+        materialCards.forEach((card) => {
+          const matches = filter === 'todos' || card.dataset.type === filter;
+          card.style.display = matches ? '' : 'none';
+        });
+      });
+    });
+  }
 });
