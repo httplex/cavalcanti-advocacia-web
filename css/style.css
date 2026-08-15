@@ -36,6 +36,7 @@ html {
 
 body {
   font-family: var(--font-body);
+  font-size: 1.05rem;
   color: var(--color-text);
   background: var(--color-white);
   line-height: 1.6;
@@ -438,7 +439,7 @@ ul {
 
 .service-card__text {
   color: var(--color-text-muted);
-  font-size: 0.92rem;
+  font-size: 1rem;
   margin-bottom: 18px;
 }
 
@@ -615,7 +616,7 @@ ul {
 
 .service-detail__cta p {
   color: var(--color-sage-light);
-  font-size: 0.92rem;
+  font-size: 1rem;
   margin-bottom: 24px;
 }
 
@@ -731,18 +732,26 @@ ul {
 .material-card__cover {
   position: relative;
   aspect-ratio: 3 / 4;
+  overflow: hidden;
   background: linear-gradient(160deg, var(--color-sage) 0%, var(--color-dark) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 18px;
+  padding: 0;
   text-align: center;
 }
 
 .material-card__cover img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
+  object-fit: contain;
+}
+
+.material-card__cover--portrait img {
   object-fit: cover;
+  object-position: center top;
 }
 
 .material-card__cover-label {
@@ -754,6 +763,7 @@ ul {
 
 .material-card__badge {
   position: absolute;
+  z-index: 1;
   top: 12px;
   left: 12px;
   padding: 5px 12px;
@@ -776,10 +786,16 @@ ul {
 
 .material-card__area {
   position: absolute;
+  z-index: 1;
   bottom: 12px;
-  left: 12px;
-  right: 12px;
-  color: var(--color-sage-light);
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  color: var(--color-white);
+  background: rgba(41, 69, 70, 0.9);
+  padding: 5px 10px;
+  border-radius: 999px;
   font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -802,7 +818,7 @@ ul {
 
 .material-card__text {
   color: var(--color-text-muted);
-  font-size: 0.86rem;
+  font-size: 0.96rem;
   margin-bottom: 18px;
   flex: 1;
 }
@@ -855,7 +871,7 @@ ul {
 
 .footer__about {
   color: var(--color-sage-light);
-  font-size: 0.9rem;
+  font-size: 1rem;
   max-width: 320px;
 }
 
@@ -874,7 +890,7 @@ ul {
 .footer__list a,
 .footer__contact-item {
   color: var(--color-sage-light);
-  font-size: 0.92rem;
+  font-size: 1rem;
   transition: color var(--transition);
 }
 
@@ -931,7 +947,7 @@ ul {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 10px;
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   color: var(--color-sage);
 }
 
